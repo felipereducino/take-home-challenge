@@ -19,15 +19,10 @@ module.exports = {
     ],
     coveragePathIgnorePatterns: [
         '/node_modules/',
-        'setup-tests.ts',
+        'setup-test.ts',
         'vite-env.d.ts',
     ],
     transform: {
         '^.+\\.(ts|tsx)$': 'babel-jest',
-    },
-    globals: {
-        'ts-jest': {
-            tsconfig: 'tsconfig.json',
-        },
     },
 }
