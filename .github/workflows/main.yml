@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # Change this if your default branch is different
+      - main
 
 permissions:
   contents: read
@@ -11,32 +11,44 @@ permissions:
   id-token: write
 
 jobs:
-  build-and-deploy:
+  build:
+    name: Build Project
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Checkout the repository
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      # 2. Setup Node.js environment
-      - name: Setup Node.js
+      - name: Setup Node.js Environment
         uses: actions/setup-node@v3
         with:
           node-version: '20'
           cache: 'yarn'
 
-      # 3. Install dependencies
       - name: Install Dependencies
         run: yarn install
 
-      # 4. Build the project
       - name: Build Project
         run: yarn build
 
-      # 5. Deploy to GitHub Pages
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v1
+      - name: Upload Build Artifacts
+        uses: actions/upload-pages-artifact@v1
         with:
-          # Specify the directory where your build output is located
           path: ./dist
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    permissions:
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v1
