@@ -22,34 +22,35 @@ The **Take Home Challenge** is a front-end application designed to demonstrate p
 
 To run this project locally, ensure you have the following dependencies installed:
 
-- **Node.js:** v18.x or higher
+- **Node.js:** v20.x or higher
 
 ### Project Dependencies
 
-- **React:** 18.2.0
-- **TypeScript:** 4.9.5
-- **Axios:** 1.4.0
-- **React Query:** 4.28.0
+- **React:** 18.3.1
+- **TypeScript:** 5.6.2
+- **Axios:** 1.7.8
+- **React Query:** 5.61.4
 
 ## 🗂️ Project Architecture
 
 The project follows a modular architecture for scalability and maintainability:
 
-- **public/**: Contains the static `index.html` file.
 - **src/**: Main source code directory.
+  - **assets/**: Images or specific icons to be used in the application.
   - **components/**: Reusable React components.
-  - **hooks/**: Custom React hooks.
-  - **pages/**: Page-level components representing different routes.
-  - **services/**: API service configurations using Axios.
+  - **configs/**: Axios (api) instance.
+  - **constants/**: Reusable values to use in different components.
   - **context/**: Contexts providers.
-  - **styles/**: Global and component-specific styles.
-  - **tests/**: Test suites for components and utilities.
+  - **hooks/**: Custom React hooks.
+  - **layout/**: Main structure of project layout.
+  - **mock/**: Folder used to mock anything.
+  - **pages/**: Page-level components representing different routes.
+  - **router/**: Configuration for routing in this project.
+  - **services/**: API service configurations using Axios.
+  - **types/**: Folder destinated to create and export types/interfaces.
   - **App.tsx**: Root component integrating all parts of the application.
-  - **index.tsx**: Entry point of the React application.
-- **package.json**: Lists project dependencies and scripts.
-- **tsconfig.json**: TypeScript configuration.
-- **README.md**: Project documentation.
-- **yarn.lock / package-lock.json**: Dependency lock files.
+  - **main.tsx**: Entry point of the React application.
+- **index.html**: Entry point of the React application.
 
 ## 🛠️ Installation & Setup
 
