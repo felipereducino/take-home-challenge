@@ -91,7 +91,10 @@ const Pagination = ({ total, itemsPerPage }: PaginationProps) => {
       {pages.map((pageNumber, index) => {
         if (pageNumber === 'leftDots' || pageNumber === 'rightDots') {
           return (
-            <span key={index} className="text-white mx-1">
+            <span
+              key={`${index}-${new Date().getFullYear()}`}
+              className="text-white mx-1"
+            >
               ...
             </span>
           )

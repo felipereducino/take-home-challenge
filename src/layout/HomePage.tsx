@@ -3,10 +3,13 @@ import useCharacters from '../hooks/useCharacter'
 import { FaArrowRight } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
 import AnimatedSection from '../components/AnimatedSection/AnimatedSection'
+import { useContext } from 'react'
+import { FilterContext } from '../context/FilterContext.tsx'
 
 function HomePage() {
   const navigate = useNavigate()
-  const { characters } = useCharacters()
+  const { filter, orderBy, page } = useContext(FilterContext)
+  const { characters } = useCharacters(filter, orderBy, page)
 
   return (
     <div className="bg-gray-900 text-white">

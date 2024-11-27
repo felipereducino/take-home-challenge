@@ -3,11 +3,14 @@ import useCharacters from '../hooks/useCharacter'
 import { motion } from 'framer-motion'
 import Loader from '../components/Loader/Loader'
 import { FaArrowLeft } from 'react-icons/fa'
+import { FilterContext } from '../context/FilterContext.tsx'
+import { useContext } from 'react'
 
 function CharacterDetailsPage() {
   const navigate = useNavigate()
   const { characterId } = useParams<{ characterId: string }>()
-  const { getCharacterDetails } = useCharacters()
+  const { filter, orderBy, page } = useContext(FilterContext)
+  const { getCharacterDetails } = useCharacters(filter, orderBy, page)
   const { characterDetail, isCharacterDetailLoading, error } =
     getCharacterDetails(characterId!)
 
