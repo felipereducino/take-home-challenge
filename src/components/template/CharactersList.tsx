@@ -11,7 +11,8 @@ import { Link } from 'react-router-dom'
 import { useContext } from 'react'
 import { ITEMS_PER_REQUEST } from '../../services/characters'
 import { FilterContext } from '../../context/FilterContext.tsx'
-import Pagination from '../Pagination/Pagination.tsx'
+import CharacterComicsGraph from '../CharacterComicsGraph/CharacterComicsGraph'
+import Pagination from '../Pagination/Pagination'
 
 function CharacterList() {
   const { filter, orderBy, page } = useContext(FilterContext)
@@ -43,9 +44,16 @@ function CharacterList() {
     <section className="flex flex-col items-center justify-center p-4 bg-[#121212] min-h-screen">
       {characters && characters.length > 0 ? (
         <>
+          <AnimatedSection delay={0.1}>
+            <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4">
+              Comics per Character
+            </h2>
+            <CharacterComicsGraph characters={characters} />
+          </AnimatedSection>
+
           <AnimatedSection delay={0.15}>
             <motion.div
-              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-8"
               variants={containerVariants}
               initial="hidden"
               animate="visible"
