@@ -2,63 +2,11 @@ import { motion } from 'framer-motion'
 import useCharacters from '../../hooks/useCharacter'
 import { Character } from '../../services/interfaces'
 import Loader from '../Loader/Loader'
-import { ReactNode } from 'react'
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
-}
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      ease: 'easeOut',
-    },
-  },
-}
-
-interface AnimatedSectionProps {
-  children: ReactNode
-  delay?: number
-}
-
-function AnimatedSection({ children, delay = 0 }: AnimatedSectionProps) {
-  return (
-    <motion.div
-      initial={{
-        opacity: 0,
-        y: 30,
-        filter: 'blur(10px)',
-      }}
-      whileInView={{
-        opacity: 1,
-        y: 0,
-        filter: 'blur(0px)',
-      }}
-      viewport={{
-        margin: '-100px',
-        once: false,
-      }}
-      transition={{
-        duration: 1.2,
-        delay,
-        ease: 'easeOut',
-      }}
-      className="w-full"
-    >
-      {children}
-    </motion.div>
-  )
-}
+import AnimatedSection from '../AnimatedSection/AnimatedSection'
+import {
+  containerVariants,
+  cardVariants,
+} from '../../constants/character-list-variants'
 
 function CharacterList() {
   const { characters, isCharactersLoading, error } = useCharacters()
@@ -83,6 +31,14 @@ function CharacterList() {
 
   return (
     <section className="p-4 bg-[#121212] min-h-screen">
+      <h2 className="text-4xl sm:text-5xl font-bold text-center">
+        Get To Know Our Heroes
+      </h2>
+      <p className="text-base sm:text-lg py-6">
+        Many Marvel superheroes maintain secret identities to protect their
+        loved ones and preserve their personal lives, adding depth and
+        complexity to their characters and storylines.
+      </p>
       <AnimatedSection delay={0.15}>
         {characters && characters.length > 0 ? (
           <motion.div

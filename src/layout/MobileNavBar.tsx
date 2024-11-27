@@ -1,10 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
-import {
-  RiHomeFill,
-  RiCompass3Line,
-  RiSearchLine,
-  RiHeartFill,
-} from 'react-icons/ri'
+import { RiHomeFill, RiCompass3Line } from 'react-icons/ri'
 import { motion } from 'framer-motion'
 
 function MobileNavbar() {
@@ -14,8 +9,6 @@ function MobileNavbar() {
   const navItems = [
     { path: '/', icon: RiHomeFill, label: 'Home' },
     { path: '/explore', icon: RiCompass3Line, label: 'Explore' },
-    { path: '/search', icon: RiSearchLine, label: 'Search' },
-    { path: '/favorites', icon: RiHeartFill, label: 'Favorites' },
   ]
 
   return (

@@ -13,6 +13,7 @@ function Router() {
       <Route element={<Layout />}>
         <Route index element={<HomePage />} />
         <Route path="/characters" element={<CharacterList />} />
+        <Route path="/explore" element={<CharacterList />} />
       </Route>
     </Routes>
   )
