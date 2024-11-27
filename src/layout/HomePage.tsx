@@ -176,7 +176,7 @@ function HomePage() {
                 whileTap={{ scale: 0.98 }}
               >
                 <span className="relative z-10 font-semibold text-white">
-                  See More
+                  See All
                 </span>
                 <FaArrowRight className="text-white group-hover:translate-x-1 transition-transform duration-300" />
                 <div

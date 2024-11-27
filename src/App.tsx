@@ -3,6 +3,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 import { BrowserRouter } from 'react-router-dom'
 import Router from './router/router'
+import { FilterProvider } from './context/FilterContext.tsx'
 
 function App() {
   const queryClient = new QueryClient()
@@ -10,7 +11,9 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
-        <Router />
+        <FilterProvider>
+          <Router />
+        </FilterProvider>
       </BrowserRouter>
       <ReactQueryDevtools />
     </QueryClientProvider>

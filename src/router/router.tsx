@@ -4,7 +4,8 @@ import NotFoundPage from '../pages/NotFoundPage'
 import Layout from '../layout/Layout'
 
 import HomePage from '../layout/HomePage'
-import CharacterList from '../components/template/CharactersList'
+import CharactersPage from '../pages/CharactersPage'
+import CharacterDetailsPage from '../pages/CharacterDetailsPage'
 
 function Router() {
   return (
@@ -12,8 +13,12 @@ function Router() {
       <Route path="*" element={<NotFoundPage />} />
       <Route element={<Layout />}>
         <Route index element={<HomePage />} />
-        <Route path="/characters" element={<CharacterList />} />
-        <Route path="/explore" element={<CharacterList />} />
+        <Route path="/characters" element={<CharactersPage />} />
+        <Route path="/explore" element={<CharactersPage />} />
+        <Route
+          path="/characters/:characterId"
+          element={<CharacterDetailsPage />}
+        />
       </Route>
     </Routes>
   )

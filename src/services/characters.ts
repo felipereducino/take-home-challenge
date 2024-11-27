@@ -4,14 +4,30 @@ import { Character, MarvelApiResponse } from './interfaces'
 
 const { ts, hash } = generateMarvelAuth(publicKey, privateKey)
 
-const ITEMS_PER_REQUEST = 10
+export const ITEMS_PER_REQUEST = 20
 
-export const Characters = async (): Promise<Character[]> => {
+export interface CharactersResponse {
+  results: Character[]
+  total: number
+}
+
+export const Characters = async (
+  filter: string,
+  orderBy: string,
+  page: number
+): Promise<CharactersResponse> => {
   try {
+    const nameStartsWith = filter ? `&nameStartsWith=${filter}` : ''
+    const orderByParam = orderBy ? `&orderBy=${orderBy}` : ''
+    const offset = (page - 1) * ITEMS_PER_REQUEST
+    const offsetParam = `&offset=${offset}`
     const response = await api.get<MarvelApiResponse>(
-      `/characters?limit=${ITEMS_PER_REQUEST}&ts=${ts}&apikey=${publicKey}&hash=${hash}`
+      `/characters?limit=${ITEMS_PER_REQUEST}${nameStartsWith}${orderByParam}${offsetParam}&ts=${ts}&apikey=${publicKey}&hash=${hash}`
     )
-    return response.data.data.results
+    return {
+      results: response.data.data.results,
+      total: response.data.data.total,
+    }
   } catch (error) {
     throw error
   }

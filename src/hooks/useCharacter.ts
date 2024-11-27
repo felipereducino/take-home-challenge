@@ -1,9 +1,14 @@
 import { useQuery } from '@tanstack/react-query'
-import { CharacterDetails, Characters } from '../services/characters'
+import {
+  CharacterDetails,
+  Characters,
+  CharactersResponse,
+} from '../services/characters'
 import { Character } from '../services/interfaces'
 
 interface UseCharactersResult {
   characters: Character[] | undefined
+  total: number
   isCharactersLoading: boolean
   error: unknown
   getCharacterDetails: (characterId: string) => {
@@ -13,15 +18,23 @@ interface UseCharactersResult {
   }
 }
 
-function useCharacters(): UseCharactersResult {
+function useCharacters(
+  filter: string,
+  orderBy: string,
+  page: number
+): UseCharactersResult {
   const {
-    data: characters,
+    data,
     isLoading: isCharactersLoading,
     error,
-  } = useQuery<Character[], unknown>({
-    queryKey: ['characters'],
-    queryFn: () => Characters(),
+  } = useQuery<CharactersResponse, unknown>({
+    queryKey: ['characters', filter, orderBy, page],
+    queryFn: () => Characters(filter, orderBy, page),
+    staleTime: 5000,
   })
+
+  const characters = data?.results
+  const total = data?.total ?? 0
 
   const getCharacterDetails = (characterId: string) => {
     const {
@@ -38,6 +51,7 @@ function useCharacters(): UseCharactersResult {
 
   return {
     characters,
+    total,
     isCharactersLoading,
     error,
     getCharacterDetails,
