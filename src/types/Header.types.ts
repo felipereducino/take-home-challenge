@@ -1,1 +1,7 @@
-export type Tab = 'Home' | 'Characters' | 'Comics' | 'Series' | 'Stories'
+export type Tab =
+  | 'Home'
+  | 'Characters'
+  | 'Battle'
+  | 'Comics'
+  | 'Series'
+  | 'Stories'

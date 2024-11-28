@@ -10,7 +10,7 @@ import LanguageSwitcher from '../components/LanguageSwitcher/LanguageSwitcher'
 function Header() {
   const [tabActive, setTabActive] = useState<Tab | null>('Home')
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const tabs: Tab[] = ['Home', 'Characters']
+  const tabs: Tab[] = ['Home', 'Characters', 'Battle']
   const location = useLocation()
 
   useEffect(() => {
