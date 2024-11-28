@@ -41,9 +41,7 @@ function Header() {
           height={30}
           alt="Spider-Man Logo"
         />
-        {/* Animated Background Effects */}
         <div className="absolute inset-0">
-          {/* Left Red Glow */}
           <div
             className="absolute -left-10 top-1/2 -translate-y-1/2 w-32 h-32 
                         bg-gradient-to-r from-red-600/40 to-red-500/40 
@@ -51,7 +49,6 @@ function Header() {
                         animate-[pulse_3s_ease-in-out_infinite]"
           />
 
-          {/* Right Red Glow */}
           <div
             className="absolute -right-10 top-1/2 -translate-y-1/2 w-32 h-32 
                         bg-gradient-to-l from-red-600/40 to-red-500/40 
@@ -59,7 +56,6 @@ function Header() {
                         animate-[pulse_3s_ease-in-out_infinite_1.5s]"
           />
 
-          {/* Moving Light Beam */}
           <div
             className="absolute top-0 left-0 w-full h-full 
                         bg-gradient-to-r from-transparent via-white/5 to-transparent 
@@ -68,7 +64,6 @@ function Header() {
         </div>
 
         <div className="max-w-7xl mx-auto flex justify-between items-center relative">
-          {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-6 tabs tabs-bordered border-white">
             {tabs.map((item) => (
               <motion.div
@@ -87,7 +82,6 @@ function Header() {
             ))}
           </nav>
 
-          {/* Logo with Glow Effect */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -107,7 +101,6 @@ function Header() {
           </motion.div>
           <LanguageSwitcher />
 
-          {/* Mobile Menu Button */}
           <button
             className="md:hidden lg:hidden p-2 hover:bg-gray-800 rounded-full transition-colors duration-300"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -127,7 +120,6 @@ function Header() {
         </div>
       </header>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div

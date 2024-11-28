@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { debounce } from 'lodash'
 import CharacterList from '../components/template/CharactersList'
-import { FilterContext } from '../context/FilterContext.tsx'
+import { FilterContext } from '../context/FilterContext'
 
 function CharactersPage() {
   const { filter, setFilter, orderBy, setOrderBy, setPage } =
@@ -16,16 +16,14 @@ function CharactersPage() {
 
   const handleOrderByChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setOrderBy(e.target.value)
-    setPage(1) // Reset page to 1 when order changes
+    setPage(1)
   }
 
-  // Debounce the setFilter function
   const debouncedSetFilter = debounce((value: string) => {
     setFilter(value)
-    setPage(1) // Reset page to 1 when filter changes
+    setPage(1)
   }, 500)
 
-  // Cleanup debounce on unmount
   useEffect(() => {
     return () => {
       debouncedSetFilter.cancel()

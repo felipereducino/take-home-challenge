@@ -6,7 +6,6 @@ function Loader({ size = 34, color = 'white' }) {
 
   return (
     <div className="relative flex items-center justify-center">
-      {/* Pulsing Background Circle */}
       <motion.div
         className="absolute rounded-full"
         style={{ width: size * 2, height: size * 2 }}
@@ -21,7 +20,6 @@ function Loader({ size = 34, color = 'white' }) {
         }}
       />
 
-      {/* Main Spider Mask Icon */}
       <motion.div
         animate={{
           rotate: 360,

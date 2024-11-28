@@ -3,8 +3,8 @@ import useCharacters from '../hooks/useCharacter'
 import { motion } from 'framer-motion'
 import Loader from '../components/Loader/Loader'
 import { FaArrowLeft } from 'react-icons/fa'
-import { FilterContext } from '../context/FilterContext.tsx'
 import { useContext } from 'react'
+import { FilterContext } from '../context/FilterContext'
 
 function CharacterDetailsPage() {
   const navigate = useNavigate()
@@ -38,14 +38,12 @@ function CharacterDetailsPage() {
       transition={{ duration: 0.5 }}
     >
       <div className="max-w-6xl mx-auto">
-        {/* Character Header */}
         <motion.div
           className="flex flex-col md:flex-row items-center md:items-start md:space-x-8"
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.6 }}
         >
-          {/* Character Image */}
           <motion.img
             src={`${characterDetail?.thumbnail.path}.${characterDetail?.thumbnail.extension}`}
             alt={characterDetail?.name}
@@ -54,7 +52,6 @@ function CharacterDetailsPage() {
             transition={{ type: 'spring', stiffness: 300 }}
           />
 
-          {/* Character Info */}
           <div className="flex-1">
             <h1 className="text-4xl font-bold mb-4">{characterDetail?.name}</h1>
             <p className="text-lg leading-relaxed">
@@ -65,12 +62,9 @@ function CharacterDetailsPage() {
           </div>
         </motion.div>
 
-        {/* Divider */}
         <div className="my-8 border-t border-gray-700"></div>
 
-        {/* Comics and Series */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Comics */}
           <motion.div
             className="bg-gray-800 p-6 rounded-lg shadow-lg"
             initial={{ x: -100, opacity: 0 }}
@@ -100,7 +94,6 @@ function CharacterDetailsPage() {
             )}
           </motion.div>
 
-          {/* Series/Films */}
           <motion.div
             className="bg-gray-800 p-6 rounded-lg shadow-lg"
             initial={{ x: 100, opacity: 0 }}
@@ -131,7 +124,6 @@ function CharacterDetailsPage() {
           </motion.div>
         </div>
 
-        {/* Additional URLs */}
         {characterDetail?.urls.length > 0 && (
           <div className="mt-8">
             <h2 className="text-2xl font-semibold mb-4">More Information</h2>
@@ -151,7 +143,6 @@ function CharacterDetailsPage() {
           </div>
         )}
         <div className="flex justify-end mt-8 sm:mt-4">
-          {/* Added margin-top adjustments for small screens */}
           <motion.button
             className="group relative overflow-hidden bg-[#121212] hover:bg-gray-900 p-4 rounded-xl mb-4
                             flex items-center gap-2 transition-all duration-300 hover:shadow-lg"

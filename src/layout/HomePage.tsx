@@ -16,7 +16,6 @@ function HomePage() {
 
   return (
     <div className="bg-gray-900 text-white">
-      {/* Hero Section */}
       <AnimatedSection delay={0.2}>
         <section className="h-screen flex flex-col items-center justify-center bg-cover bg-center relative">
           <div className="absolute inset-0 bg-black opacity-50"></div>
@@ -45,10 +44,8 @@ function HomePage() {
         </section>
       </AnimatedSection>
 
-      {/* About Marvel Section */}
       <AnimatedSection delay={0.2}>
         <section className="py-20 px-5 sm:px-6 md:px-20 bg-gray-800">
-          {/* Added sm:px-6 for better padding on small screens */}
           <motion.div
             className="max-w-4xl mx-auto text-center"
             initial={{ opacity: 0, x: -100 }}
@@ -59,7 +56,6 @@ function HomePage() {
             <h2 className="text-4xl sm:text-5xl font-bold mb-6">
               {t('about_marvel')}
             </h2>
-            {/* Increased font size on small screens */}
             <p className="text-lg sm:text-xl leading-relaxed">
               {t('about_marvel_description')}
             </p>
@@ -67,17 +63,13 @@ function HomePage() {
         </section>
       </AnimatedSection>
 
-      {/* Marvel Curiosities Section */}
       <AnimatedSection delay={0.2}>
         <section className="py-20 px-5 sm:px-6 md:px-20 bg-gray-900">
-          {/* Added sm:px-6 for better padding on small screens */}
           <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl sm:text-5xl font-bold text-center mb-12">
               {t('marvel_curiosities')}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {/* Changed md:grid-cols to sm:grid-cols to ensure two columns on small screens */}
-              {/* Curiosity Card 1 */}
               <motion.div
                 className="bg-gray-800 p-6 rounded-lg shadow-lg"
                 whileHover={{ scale: 1.05 }}
@@ -90,7 +82,6 @@ function HomePage() {
                   {t('marvel_curiosities_card_description1')}
                 </p>
               </motion.div>
-              {/* Curiosity Card 2 */}
               <motion.div
                 className="bg-gray-800 p-6 rounded-lg shadow-lg"
                 whileHover={{ scale: 1.05 }}
@@ -103,7 +94,6 @@ function HomePage() {
                   {t('marvel_curiosities_card_description2')}
                 </p>
               </motion.div>
-              {/* Curiosity Card 3 */}
               <motion.div
                 className="bg-gray-800 p-6 rounded-lg shadow-lg"
                 whileHover={{ scale: 1.05 }}
@@ -116,28 +106,23 @@ function HomePage() {
                   {t('marvel_curiosities_card_description3')}
                 </p>
               </motion.div>
-              {/* Add more cards as needed */}
             </div>
           </div>
         </section>
       </AnimatedSection>
 
-      {/* Featured Characters Section */}
       <AnimatedSection delay={0.2}>
         <section className="py-8 px-5 sm:px-6 md:px-20 bg-gray-800">
-          {/* Added sm:px-6 for better padding on small screens */}
           <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl sm:text-5xl font-bold text-center mb-12">
               {t('featured_characters')}
             </h2>
             <div className="flex flex-col sm:flex-row justify-center gap-12">
-              {/* Changed to flex-col on small screens */}
               {characters?.slice(0, 2).map((character) => (
                 <div
                   key={character.id}
                   className="flex flex-wrap justify-center gap-8"
                 >
-                  {/* Character */}
                   <motion.div
                     className="w-full sm:w-60 bg-gray-700 rounded-lg overflow-hidden shadow-lg border-2 border-white"
                     whileHover={{ scale: 1.05 }}
@@ -160,7 +145,6 @@ function HomePage() {
               ))}
             </div>
             <div className="flex justify-end mt-8 sm:mt-4">
-              {/* Added margin-top adjustments for small screens */}
               <motion.button
                 className="group relative overflow-hidden bg-gray-800 hover:bg-gray-900 p-4 rounded-xl mb-4
                             flex items-center gap-2 transition-all duration-300 hover:shadow-lg"
@@ -183,7 +167,6 @@ function HomePage() {
         </section>
       </AnimatedSection>
 
-      {/* Footer Section */}
       <footer className="py-10 bg-gray-900 text-center">
         <p className="text-gray-500 text-sm sm:text-base">{t('copyright')}</p>
       </footer>

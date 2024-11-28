@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import { motion } from 'framer-motion'
-import { FilterContext } from '../../context/FilterContext.tsx'
+import { FilterContext } from '../../context/FilterContext'
 
 interface PaginationProps {
   total: number
@@ -32,7 +32,6 @@ const Pagination = ({ total, itemsPerPage }: PaginationProps) => {
       }
     }
 
-    // Handle ... in pagination
     const showLeftDots = startPage > 2
     const showRightDots = endPage < totalPages - 1
 

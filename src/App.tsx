@@ -3,7 +3,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 import { BrowserRouter } from 'react-router-dom'
 import Router from './router/router'
-import { FilterProvider } from './context/FilterContext.tsx'
+import { FilterProvider } from './context/FilterContext'
 
 function App() {
   const queryClient = new QueryClient()

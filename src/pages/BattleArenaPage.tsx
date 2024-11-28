@@ -15,7 +15,6 @@ function BattleArenaPage() {
     error,
   } = useCharacters(filter, orderBy, page)
 
-  // Initialize availableCharacters when characters are loaded
   const [availableCharacters, setAvailableCharacters] = useState<Character[]>(
     []
   )
@@ -23,7 +22,6 @@ function BattleArenaPage() {
   const [winner, setWinner] = useState<Character | null>(null)
   const [showClash, setShowClash] = useState(false)
 
-  // Use a ref to keep track of whether we've initialized availableCharacters
   const initializedRef = React.useRef(false)
 
   useEffect(() => {
@@ -33,7 +31,6 @@ function BattleArenaPage() {
     }
   }, [characters])
 
-  // Handle Clash and Determine Winner
   useEffect(() => {
     if (battleCharacters.length === 2) {
       setShowClash(true)
@@ -43,7 +40,7 @@ function BattleArenaPage() {
         const determinedWinner =
           char1.comics.available >= char2.comics.available ? char1 : char2
         setWinner(determinedWinner)
-      }, 2000) // 2 seconds clash animation
+      }, 2000)
 
       return () => clearTimeout(clashTimer)
     }
@@ -58,12 +55,10 @@ function BattleArenaPage() {
   const onDragEnd = (result: any) => {
     const { source, destination } = result
 
-    // Dropped outside the list
     if (!destination) {
       return
     }
 
-    // If the item was dropped back into the same list at the same position, do nothing
     if (
       source.droppableId === destination.droppableId &&
       source.index === destination.index
@@ -75,9 +70,7 @@ function BattleArenaPage() {
       source.droppableId === 'available' &&
       destination.droppableId === 'battle'
     ) {
-      // Moving from available to battle
       if (battleCharacters.length >= 2) {
-        // Can't add more than 2 characters to battle
         alert('You can only have 2 characters in the battle arena')
         return
       }
@@ -92,7 +85,6 @@ function BattleArenaPage() {
       source.droppableId === 'battle' &&
       destination.droppableId === 'available'
     ) {
-      // Moving from battle back to available
       const movedCharacter = battleCharacters[source.index]
       const newBattleCharacters = Array.from(battleCharacters)
       newBattleCharacters.splice(source.index, 1)
@@ -101,7 +93,6 @@ function BattleArenaPage() {
       setBattleCharacters(newBattleCharacters)
       setAvailableCharacters(newAvailableCharacters)
     } else if (source.droppableId === destination.droppableId) {
-      // Reordering within the same list
       if (source.droppableId === 'available') {
         const newAvailableCharacters = Array.from(availableCharacters)
         const [movedCharacter] = newAvailableCharacters.splice(source.index, 1)
@@ -142,7 +133,6 @@ function BattleArenaPage() {
 
       <DragDropContext onDragEnd={onDragEnd}>
         <div className="flex flex-col gap-8">
-          {/* Available Characters List */}
           <div className="w-full">
             <h2 className="text-2xl font-semibold text-white mb-4 text-center">
               Available Characters
@@ -196,7 +186,6 @@ function BattleArenaPage() {
             </Droppable>
           </div>
 
-          {/* Battle Area */}
           <div className="w-full">
             <h2 className="text-2xl font-semibold text-white mb-4 text-center">
               Battle Arena
@@ -239,7 +228,6 @@ function BattleArenaPage() {
                       )}
                     </Draggable>
                   ))}
-                  {/* Placeholder Text */}
                   {battleCharacters.length < 2 && (
                     <p className="text-red-600 italic">
                       Drag characters here (Max 2)
@@ -253,7 +241,6 @@ function BattleArenaPage() {
         </div>
       </DragDropContext>
 
-      {/* Clash Animation */}
       <AnimatePresence>
         {showClash && (
           <motion.div
@@ -275,7 +262,6 @@ function BattleArenaPage() {
         )}
       </AnimatePresence>
 
-      {/* Winner Display */}
       <AnimatePresence>
         {winner && (
           <motion.div
@@ -291,7 +277,6 @@ function BattleArenaPage() {
               exit={{ scale: 0.5 }}
               transition={{ duration: 0.3 }}
             >
-              {/* Close Button */}
               <button
                 className="absolute top-4 right-4 text-white text-2xl font-bold focus:outline-none"
                 onClick={resetBattle}

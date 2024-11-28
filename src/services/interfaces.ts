@@ -1,4 +1,3 @@
-// Root Response Interface
 export interface MarvelApiResponse {
   code: number
   status: string
@@ -9,7 +8,6 @@ export interface MarvelApiResponse {
   data: MarvelApiDataContainer
 }
 
-// Data Container Interface
 export interface MarvelApiDataContainer {
   offset: number
   limit: number
@@ -18,7 +16,6 @@ export interface MarvelApiDataContainer {
   results: Character[]
 }
 
-// Character Interface
 export interface Character {
   id: number
   name: string
@@ -33,13 +30,11 @@ export interface Character {
   urls: Url[]
 }
 
-// Thumbnail Interface
 export interface Thumbnail {
   path: string
   extension: string
 }
 
-// Comics List Interface
 export interface ComicsList {
   available: number
   collectionURI: string
@@ -47,13 +42,11 @@ export interface ComicsList {
   returned: number
 }
 
-// Comic Summary Interface
 export interface ComicSummary {
   resourceURI: string
   name: string
 }
 
-// Series List Interface
 export interface SeriesList {
   available: number
   collectionURI: string
@@ -61,13 +54,11 @@ export interface SeriesList {
   returned: number
 }
 
-// Series Summary Interface
 export interface SeriesSummary {
   resourceURI: string
   name: string
 }
 
-// Stories List Interface
 export interface StoriesList {
   available: number
   collectionURI: string
@@ -75,14 +66,12 @@ export interface StoriesList {
   returned: number
 }
 
-// Story Summary Interface
 export interface StorySummary {
   resourceURI: string
   name: string
   type: string
 }
 
-// Events List Interface
 export interface EventsList {
   available: number
   collectionURI: string
@@ -90,13 +79,11 @@ export interface EventsList {
   returned: number
 }
 
-// Event Summary Interface
 export interface EventSummary {
   resourceURI: string
   name: string
 }
 
-// URL Interface
 export interface Url {
   type: string
   url: string
