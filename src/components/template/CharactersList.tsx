@@ -10,9 +10,10 @@ import {
 import { Link } from 'react-router-dom'
 import { useContext } from 'react'
 import { ITEMS_PER_REQUEST } from '../../services/characters'
-import { FilterContext } from '../../context/FilterContext.tsx'
 import CharacterComicsGraph from '../CharacterComicsGraph/CharacterComicsGraph'
 import Pagination from '../Pagination/Pagination'
+import { FilterContext } from '../../context/FilterContext'
+import { useTranslation } from 'react-i18next'
 
 function CharacterList() {
   const { filter, orderBy, page } = useContext(FilterContext)
@@ -21,6 +22,8 @@ function CharacterList() {
     orderBy,
     page
   )
+
+  const { t } = useTranslation()
 
   if (isCharactersLoading) {
     return (
@@ -34,7 +37,7 @@ function CharacterList() {
     return (
       <div className="min-h-[400px] flex items-center justify-center bg-gray-900">
         <div className="text-red-500 text-lg">
-          An error occurred: {(error as Error).message}
+          {t('an_error_occurred', { message: (error as Error).message })}
         </div>
       </div>
     )
@@ -46,7 +49,7 @@ function CharacterList() {
         <>
           <AnimatedSection delay={0.1}>
             <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4">
-              Comics per Character
+              {t('comics_per_character')}
             </h2>
             <CharacterComicsGraph characters={characters} />
           </AnimatedSection>

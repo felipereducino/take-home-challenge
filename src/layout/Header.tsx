@@ -5,6 +5,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { Tab } from '../types/Header.types'
 import spiderMan from '../assets/spider-man.webp'
 import { menuVariants } from '../constants/menu-variants'
+import LanguageSwitcher from '../components/LanguageSwitcher/LanguageSwitcher'
 
 function Header() {
   const [tabActive, setTabActive] = useState<Tab | null>('Home')
@@ -104,6 +105,7 @@ function Header() {
                             opacity-0 group-hover:opacity-100 transition-opacity duration-300"
             ></div>
           </motion.div>
+          <LanguageSwitcher />
 
           {/* Mobile Menu Button */}
           <button

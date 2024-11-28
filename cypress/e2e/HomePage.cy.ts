@@ -17,16 +17,46 @@ describe('HomePage E2E Tests', () => {
   })
 
   it('should display the About Marvel section when the user scrolls down', () => {
-    // Scroll to the "About Marvel" section
     cy.contains('About Marvel').scrollIntoView()
 
-    // Wait for the animation to complete
-    cy.wait(1000) // Adjust the duration if your animation takes longer
+    cy.wait(1000)
 
-    // Now, the opacity should be 1
     cy.contains('About Marvel').should(($el) => {
       const opacity = $el.css('opacity')
       expect(opacity).to.eq('1')
     })
+
+    cy.contains('Marvel Curiosities').should(($el) => {
+      const opacity = $el.css('opacity')
+      expect(opacity).to.eq('1')
+    })
+  })
+
+  it('should display the Marvel Curiosities section when the user scrolls down', () => {
+    cy.contains('Marvel Curiosities').scrollIntoView()
+
+    cy.wait(1000)
+
+    cy.contains('Marvel Curiosities').should(($el) => {
+      const opacity = $el.css('opacity')
+      expect(opacity).to.eq('1')
+    })
+  })
+
+  it('should display the Featured Characters section when the user scrolls down', () => {
+    cy.contains('Featured Characters').scrollIntoView()
+
+    cy.wait(1000)
+
+    cy.contains('Featured Characters').should(($el) => {
+      const opacity = $el.css('opacity')
+      expect(opacity).to.eq('1')
+    })
+  })
+
+  it('should display the "See All" button when the user scrolls down', () => {
+    cy.get('[data-testid="see-all-button"]')
+      .contains('See All')
+      .scrollIntoView()
   })
 })

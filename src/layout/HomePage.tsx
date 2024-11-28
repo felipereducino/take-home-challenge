@@ -5,11 +5,14 @@ import { useNavigate } from 'react-router-dom'
 import AnimatedSection from '../components/AnimatedSection/AnimatedSection'
 import { useContext } from 'react'
 import { FilterContext } from '../context/FilterContext'
+import { useTranslation } from 'react-i18next'
 
 function HomePage() {
   const navigate = useNavigate()
   const { filter, orderBy, page } = useContext(FilterContext)
   const { characters } = useCharacters(filter, orderBy, page)
+
+  const { t } = useTranslation()
 
   return (
     <div className="bg-gray-900 text-white">
@@ -18,7 +21,7 @@ function HomePage() {
         <section className="h-screen flex flex-col items-center justify-center bg-cover bg-center relative">
           <div className="absolute inset-0 bg-black opacity-50"></div>
           <motion.div
-            className="relative z-10 text-center px-4 sm:px-6" // Added padding for small screens
+            className="relative z-10 text-center px-4 sm:px-6"
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
@@ -36,7 +39,7 @@ function HomePage() {
               animate={{ opacity: 1 }}
               transition={{ delay: 1, duration: 1 }}
             >
-              Discover the Universe of Marvel
+              {t('discover_marvel_universe')}
             </motion.p>
           </motion.div>
         </section>
@@ -54,16 +57,11 @@ function HomePage() {
             transition={{ duration: 1 }}
           >
             <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-              About Marvel
+              {t('about_marvel')}
             </h2>
             {/* Increased font size on small screens */}
             <p className="text-lg sm:text-xl leading-relaxed">
-              Marvel Comics is one of the most prominent and influential comic
-              book publishers, known for creating iconic superheroes like
-              Spider-Man, Iron Man, and the Avengers. Since its inception in
-              1939, Marvel has expanded its universe through movies, TV shows,
-              and a vast array of merchandise, captivating audiences worldwide
-              with its rich storytelling and dynamic characters.
+              {t('about_marvel_description')}
             </p>
           </motion.div>
         </section>
@@ -75,7 +73,7 @@ function HomePage() {
           {/* Added sm:px-6 for better padding on small screens */}
           <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl sm:text-5xl font-bold text-center mb-12">
-              Marvel Curiosities
+              {t('marvel_curiosities')}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {/* Changed md:grid-cols to sm:grid-cols to ensure two columns on small screens */}
@@ -86,13 +84,10 @@ function HomePage() {
                 transition={{ type: 'spring', stiffness: 300 }}
               >
                 <h3 className="text-2xl sm:text-2xl font-semibold mb-4">
-                  Stan Lee Cameos
+                  {t('marvel_curiosities_card_title1')}
                 </h3>
                 <p className="text-base sm:text-lg">
-                  Stan Lee, the legendary co-creator of many Marvel superheroes,
-                  made cameo appearances in nearly every Marvel movie until his
-                  passing in 2018, delighting fans with his unexpected and
-                  humorous roles.
+                  {t('marvel_curiosities_card_description1')}
                 </p>
               </motion.div>
               {/* Curiosity Card 2 */}
@@ -102,13 +97,10 @@ function HomePage() {
                 transition={{ type: 'spring', stiffness: 300 }}
               >
                 <h3 className="text-2xl sm:text-2xl font-semibold mb-4">
-                  Marvel Cinematic Universe (MCU)
+                  {t('marvel_curiosities_card_title2')}
                 </h3>
                 <p className="text-base sm:text-lg">
-                  The MCU is an expansive media franchise that interconnects
-                  movies and TV shows, creating a shared universe where
-                  characters and storylines intersect, offering a cohesive and
-                  immersive experience for fans.
+                  {t('marvel_curiosities_card_description2')}
                 </p>
               </motion.div>
               {/* Curiosity Card 3 */}
@@ -118,12 +110,10 @@ function HomePage() {
                 transition={{ type: 'spring', stiffness: 300 }}
               >
                 <h3 className="text-2xl sm:text-2xl font-semibold mb-4">
-                  Secret Identities
+                  {t('marvel_curiosities_card_title3')}
                 </h3>
                 <p className="text-base sm:text-lg">
-                  Many Marvel superheroes maintain secret identities to protect
-                  their loved ones and preserve their personal lives, adding
-                  depth and complexity to their characters and storylines.
+                  {t('marvel_curiosities_card_description3')}
                 </p>
               </motion.div>
               {/* Add more cards as needed */}
@@ -138,7 +128,7 @@ function HomePage() {
           {/* Added sm:px-6 for better padding on small screens */}
           <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl sm:text-5xl font-bold text-center mb-12">
-              Featured Characters
+              {t('featured_characters')}
             </h2>
             <div className="flex flex-col sm:flex-row justify-center gap-12">
               {/* Changed to flex-col on small screens */}
@@ -177,9 +167,10 @@ function HomePage() {
                 onClick={() => navigate('/characters')}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
+                data-testid="see-all-button"
               >
                 <span className="relative z-10 font-semibold text-white">
-                  See All
+                  {t('see_all_button')}
                 </span>
                 <FaArrowRight className="text-white group-hover:translate-x-1 transition-transform duration-300" />
                 <div
@@ -194,11 +185,7 @@ function HomePage() {
 
       {/* Footer Section */}
       <footer className="py-10 bg-gray-900 text-center">
-        <p className="text-gray-500 text-sm sm:text-base">
-          &copy; {new Date().getFullYear()} Marvel Universe. All rights
-          reserved.
-        </p>
-        {/* Adjusted text size for small screens */}
+        <p className="text-gray-500 text-sm sm:text-base">{t('copyright')}</p>
       </footer>
     </div>
   )
