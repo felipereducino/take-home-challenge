@@ -4,7 +4,7 @@ import { FaArrowRight } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
 import AnimatedSection from '../components/AnimatedSection/AnimatedSection'
 import { useContext } from 'react'
-import { FilterContext } from '../context/FilterContext.tsx'
+import { FilterContext } from '../context/FilterContext'
 
 function HomePage() {
   const navigate = useNavigate()

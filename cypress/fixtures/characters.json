@@ -1,0 +1,23 @@
+{
+  "data": {
+    "results": [
+      {
+        "id": 1011334,
+        "name": "3-D Man",
+        "thumbnail": {
+          "path": "http://i.annihil.us/u/prod/marvel/i/mg/6/60/526028753a5ba",
+          "extension": "jpg"
+        }
+      },
+      {
+        "id": 1017100,
+        "name": "A-Bomb (HAS)",
+        "thumbnail": {
+          "path": "http://i.annihil.us/u/prod/marvel/i/mg/3/20/5232158de5b16",
+          "extension": "jpg"
+        }
+      }
+    ],
+    "total": 2
+  }
+}

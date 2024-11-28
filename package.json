@@ -10,7 +10,10 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "jest --watchAll",
-    "test:cov": "jest --coverage --watchAll"
+    "test:cov": "jest --coverage --watchAll",
+    "cy:open": "cypress open",
+    "test:e2e": "start-server-and-test start http://localhost:3000 cypress open",
+    "test:e2e:ci": "start-server-and-test start http://localhost:3000 cypress run"
   },
   "dependencies": {
     "@nivo/circle-packing": "^0.88.0",
@@ -43,6 +46,7 @@
     "@vitejs/plugin-react-swc": "^3.5.0",
     "autoprefixer": "^10.4.20",
     "babel-jest": "^29.7.0",
+    "cypress": "^13.16.0",
     "eslint": "^9.13.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
