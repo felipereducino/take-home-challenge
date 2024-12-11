@@ -30,7 +30,7 @@ The **Take Home Challenge** is a front-end application designed to demonstrate p
 
 ## 🛠️ Dependencies
 
-To run this project locally, ensure you have the following dependencies installed:
+In order to run this project on development environment, ensure you have the following dependencies installed:
 
 - **Node.js:** v20.x or higher
 
@@ -57,23 +57,25 @@ npm install -g yarn
 
 The project follows a modular architecture for scalability and maintainability:
 
-- **public/**: Contains JSON files for translations and all needed public files for this application.
-- **src/**: Main source code directory.
-  - **assets/**: Images or specific icons to be used in the application.
-  - **components/**: Reusable React components.
-  - **configs/**: Axios (api) instance.
-  - **constants/**: Reusable values to use in different components.
-  - **context/**: Contexts providers.
-  - **hooks/**: Custom React hooks.
-  - **layout/**: Main structure of project layout.
-  - **mock/**: Folder used to mock anything.
-  - **pages/**: Page-level components representing different routes.
-  - **router/**: Configuration for routing in this project.
-  - **services/**: API service configurations using Axios.
-  - **types/**: Folder destinated to create and export types/interfaces.
-  - **App.tsx**: Root component integrating all parts of the application.
-  - **main.tsx**: Entry point of the React application.
-- **index.html**: Entry point of the React application.
+| **Folder/File**        | **Description**                                                                 |
+|-------------------------|---------------------------------------------------------------------------------|
+| **public/**            | Contains JSON files for translations and all needed public files for this application. |
+| **src/**               | Main source code directory.                                                     |
+| **assets/**            | Images or specific icons to be used in the application.                         |
+| **components/**        | Reusable React components.                                                      |
+| **configs/**           | Axios (API) instance.                                                           |
+| **constants/**         | Reusable values to use in different components.                                 |
+| **context/**           | Context providers.                                                              |
+| **hooks/**             | Custom React hooks.                                                             |
+| **layout/**            | Main structure of project layout.                                               |
+| **mock/**              | Folder used to mock anything.                                                   |
+| **pages/**             | Page-level components representing different routes.                            |
+| **router/**            | Configuration for routing in this project.                                      |
+| **services/**          | API service configurations using Axios.                                         |
+| **types/**             | Folder designated to create and export types/interfaces.                        |
+| **App.tsx**            | Root component integrating all parts of the application.                        |
+| **main.tsx**           | Entry point of the React application.                                           |
+| **index.html**         | Entry point of the React application.                                           |
 
 <br/>
 
@@ -94,6 +96,8 @@ yarn install
 ```
 
 ### 3. Configure Environment Variables
+
+Access https://developer.marvel.com/ and create a free account.
 
 Create a `.env` file in the root directory and add the necessary environment variables:
 
@@ -144,13 +148,15 @@ The coverage report will be available in the coverage/ directory.
 
 ### Here are some commonly used scripts in this project:
 
-- Start Development Server: `yarn dev`
-- Build for Production: `yarn build`
-- Run Tests: `yarn test`
-- Generate Coverage Report: `yarn test:cov`
-- Lint Code: `yarn lint`
-- Format Code: `yarn format`
-- Open Cypress Client: `yarn cy:open`
+| **Script**                 | **Description**                        |
+|----------------------------|----------------------------------------|
+| `yarn dev`                 | Start Development Server              |
+| `yarn build`               | Build for Production                  |
+| `yarn test`                | Run Tests                             |
+| `yarn test:cov`            | Generate Tests Coverage Report        |
+| `yarn lint`                | Lint Code                             |
+| `yarn format`              | Format Code                           |
+| `yarn cy:open`             | Open Cypress Client                   |
 
 <br/>
 
